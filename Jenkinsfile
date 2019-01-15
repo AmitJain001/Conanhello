@@ -17,7 +17,7 @@ pipeline{
 		}
 		stage("Upload packages"){
 			steps{
-				sh "conan upload Hello* --all -r=artifactory"
+				sh "conan upload Hello* --all -r=artifactory --force"
 			}
 		}
 	}
