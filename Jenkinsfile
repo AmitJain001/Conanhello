@@ -1,6 +1,6 @@
 node{
 	def server = Artifactory.server "artifactory"
-	def client = Artifactory.newConanClient() userHome: "/home/ajain"
+	def client = Artifactory.newConanClient userHome: "/home/ajain"
 	def name = client.remote.add server: server,repo = "conan-local"
 
 	stage ("Get recipe"){
