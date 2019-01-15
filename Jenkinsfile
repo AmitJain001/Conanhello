@@ -1,5 +1,8 @@
 pipeline{
 	agent any
+	environment {
+    		PATH = "/home/ajain/Downloads/cmake-3.13.3/bin:$PATH"
+	}
 	stages{
 		stage ("Get recipe"){
 			steps{
