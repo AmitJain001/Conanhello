@@ -1,17 +1,12 @@
 node{
-	def server = Artifactory.server "artifactory"
-	def client = Artifactory.newConanClient() 
-	client.run(command: "config install /home/ajain/config.zip")
-	def name = client.remote.add server: server,repo = "conan-local"
-
 	stage ("Get recipe"){
 		checkout scm	
 	}
 	stage("Create package"){
-		client.run(command: "create . amit/user -s build_type=Debug")
+		sh -c "conan config install /home/ajain/config.zip"
+		sh -c "conan create . amit/user -s build_type=Debug"
 	}
 	stage("Upload packages"){
-		string command = "upload Hello* --all -r ($name) ---cofirm"
-		def b = client.run(command:command)
+		sh -c "conan upload Hello* --all -r=artifactory ---cofirm"
 	}
 }
