@@ -3,7 +3,7 @@ builders["Debug"] = {
 	node{
 		def server = Artifactory.server "artifactory"
 		def client = Artifactory.newConanClient()
-		def name = client.remote.add.server:server,repo = "conan-local"
+		def name = client.remote.add server: server,repo = "conan-local"
 
 		stage ("Get recipe"){
 			checkout scm	
@@ -21,7 +21,7 @@ builders["Release"] = {
 	node{
 		def server = Artifactory.server "artifactory"
 		def client = Artifactory.newConanClient()
-		def name = client.remote.add.server:server,repo = "conan-local"
+		def name = client.remote.add server: server,repo = "conan-local"
 
 		stage ("Get recipe"){
 			checkout scm	
