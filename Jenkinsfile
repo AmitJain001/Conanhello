@@ -9,7 +9,7 @@ builders["Debug"] = {
 			checkout scm	
 		}
 		stage("Create package"){
-			client.run(command "create . amit/user -s build_type=Debug")
+			client.run(command: "create . amit/user -s build_type=Debug")
 		}
 		stage("Upload packages"){
 			string command = "upload Hello* --all -r ($name) ---cofirm"
@@ -27,7 +27,7 @@ builders["Release"] = {
 			checkout scm	
 		}
 		stage("Create package"){
-			client.run(command "create . amit/user -s build_type=Release")
+			client.run(command: "create . amit/user -s build_type=Release")
 		}
 		stage("Upload packages"){
 			string command = "upload Hello* --all -r ($name) ---cofirm"
